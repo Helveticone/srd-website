@@ -15,6 +15,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
     "db:generate": "turbo run db:generate",
     "db:migrate": "turbo run db:migrate",
+    "db:seed": "pnpm --filter @srd/db db:seed",
     "db:studio": "pnpm --filter @srd/db db:studio",
     "clean": "turbo run clean && rm -rf node_modules"
   },
