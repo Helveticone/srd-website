@@ -1,0 +1,25 @@
+@import '@srd/ui/styles.css';
+
+/* Sources Tailwind propres à l'app */
+@source '../app';
+@source '../components';
+
+/* Ticker de résultats — défilement continu */
+@keyframes srd-ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: srd-ticker 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none;
+  }
+}

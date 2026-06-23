@@ -1,0 +1,22 @@
+# ============================================================================
+#  Cloudflare Pages — Site public srd.ch  (@srd/web)
+#  Build : @cloudflare/next-on-pages → .vercel/output/static
+# ============================================================================
+name = "srd-web"
+compatibility_date = "2024-12-30"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+# --- Variables publiques (non secrètes) ---
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://srd.ch"
+NEXT_PUBLIC_ADMIN_ASSOC_URL = "https://admin.srd.ch"
+NEXT_PUBLIC_ADMIN_SA_URL = "https://admin.pro.srd.ch"
+NEXT_PUBLIC_CF_IMAGES_URL = "https://srd.ch/cdn-cgi/image"
+
+# --- R2 : lecture des médias publics (optionnel — sinon bucket public via media.srd.ch) ---
+# [[r2_buckets]]
+# binding = "MEDIA"
+# bucket_name = "srd-media"
+
+# NB : aucun secret ici. Le site public n'accède pas à la base.

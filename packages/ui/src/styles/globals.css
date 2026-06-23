@@ -1,0 +1,57 @@
+/* ==========================================================================
+   SR Delémont — Styles globaux du design system
+   Une app fait : @import '@srd/ui/styles.css';
+   ========================================================================== */
+@import 'tailwindcss';
+@import './theme.css';
+
+/* Scanne les composants du design system pour générer leurs classes Tailwind */
+@source '../components';
+
+@layer base {
+  html {
+    background-color: var(--color-srd-black);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-srd-black);
+    color: #fff;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  ::selection {
+    background-color: var(--color-srd-yellow);
+    color: var(--color-srd-black);
+  }
+
+  /* --- Accents par entité : surchargent --color-accent dans leur portée --- */
+  [data-entity='association'] {
+    --color-accent: #f5c800; /* Jaune SRD */
+    --color-accent-contrast: #0a0a0a;
+  }
+  [data-entity='pro'] {
+    --color-accent: #c0c5ce; /* Argent */
+    --color-accent-contrast: #0a0a0a;
+  }
+  [data-entity='academie'] {
+    --color-accent: #a3e635; /* Lime */
+    --color-accent-contrast: #0a0a0a;
+  }
+
+  /* Scrollbar sombre */
+  * {
+    scrollbar-color: var(--color-srd-border) transparent;
+  }
+}

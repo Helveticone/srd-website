@@ -1,0 +1,24 @@
+# ============================================================================
+#  Cloudflare Pages — Admin Association  admin.srd.ch  (@srd/admin-assoc)
+#  Protégé par Cloudflare Access (application dédiée — AUD propre).
+# ============================================================================
+name = "srd-admin-assoc"
+compatibility_date = "2024-12-30"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+# --- Variables non secrètes ---
+# CF_ACCESS_AUD_ASSOC : AUD tag de l'application Access "admin.srd.ch"
+#   → à renseigner après création de l'app Access (cf. DEPLOYMENT.md, étape D).
+[vars]
+CF_ACCESS_TEAM_DOMAIN = "srd.cloudflareaccess.com"
+CF_ACCESS_AUD_ASSOC = "REMPLACER_PAR_AUD_APP_ASSOC"
+
+# --- R2 : upload des médias (photos, documents) ---
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "srd-media"
+
+# --- SECRETS (NE PAS mettre ici) ---
+#   DATABASE_URL  → wrangler pages secret put DATABASE_URL --project-name srd-admin-assoc
+#   (ou via le dashboard Pages → Settings → Environment variables → Encrypt)

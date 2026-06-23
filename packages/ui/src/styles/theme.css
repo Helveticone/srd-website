@@ -1,0 +1,30 @@
+/* ==========================================================================
+   SR Delémont — Design tokens (Tailwind v4 @theme)
+   Importé par chaque app. Génère les utilitaires bg-srd-*, text-srd-*, etc.
+   ========================================================================== */
+@theme {
+  /* Couleurs de marque */
+  --color-srd-black: #0a0a0a;
+  --color-srd-yellow: #f5c800;
+  --color-srd-dark: #141414;
+  --color-srd-border: #1e1e1e;
+
+  /* Jaune officiel du logo (wordmark) — légèrement plus vif */
+  --color-srd-logo: #f5eb29;
+
+  /* Accent par espace (différenciation forte). Défaut = jaune SRD.
+     Surchargé par [data-entity] (cf. globals.css). */
+  --color-accent: #f5c800;
+  --color-accent-contrast: #0a0a0a;
+
+  /* Échelle de gris sombre utilitaire */
+  --color-srd-muted: #8a8a8a;
+  --color-srd-elevated: #1a1a1a;
+
+  /* Typographie — variables alimentées par next/font dans chaque app */
+  --font-sans: var(--font-barlow), 'Barlow', system-ui, sans-serif;
+  --font-display: var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
+
+  /* Rayons */
+  --radius-srd: 0.5rem;
+}
