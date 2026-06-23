@@ -12,6 +12,9 @@ import {
 } from '@srd/ui';
 import { getAdminIdentity } from '@/lib/auth';
 
+// Requis par Cloudflare Pages (@cloudflare/next-on-pages) : SSR sur runtime Edge.
+export const runtime = 'edge';
+
 export const metadata = { title: 'Dashboard' };
 
 // NOTE: chiffres provisoires — à remplacer par des requêtes @srd/db (schema-assoc).

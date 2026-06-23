@@ -4,6 +4,9 @@ import { Barlow, Barlow_Condensed } from 'next/font/google';
 import { AdminShell } from '@/components/AdminShell';
 import './globals.css';
 
+// Requis par Cloudflare Pages (@cloudflare/next-on-pages) : SSR sur runtime Edge.
+export const runtime = 'edge';
+
 const barlow = Barlow({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
