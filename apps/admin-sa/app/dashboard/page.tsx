@@ -1,3 +1,5 @@
+export const runtime = 'edge'; // Cloudflare Pages (next-on-pages) — SSR sur runtime Edge
+
 import {
   Badge,
   Button,
@@ -11,9 +13,6 @@ import {
   TableRow,
 } from '@srd/ui';
 import { getAdminIdentity } from '@/lib/auth';
-
-// Requis par Cloudflare Pages (@cloudflare/next-on-pages) : SSR sur runtime Edge.
-export const runtime = 'edge';
 
 export const metadata = { title: 'Dashboard' };
 
