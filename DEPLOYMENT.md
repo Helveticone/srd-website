@@ -73,13 +73,19 @@ Pour **chaque** app, dashboard → **Workers & Pages** → **Create** → **Page
 | --- | --- |
 | Project name | `srd-web` |
 | Production branch | `main` |
-| Root directory | `apps/web` |
-| Build command | `npx @cloudflare/next-on-pages@1` |
-| Build output directory | `.vercel/output/static` |
+| Framework preset | **None** (⚠️ pas « Next.js ») |
+| Root directory | _(laisser VIDE — racine du dépôt)_ |
+| Build command | `cd apps/web && npx @cloudflare/next-on-pages@1` |
+| Build output directory | `apps/web/.vercel/output/static` |
 | Variables d'env (Build) | `NODE_VERSION = 20` |
 
-> Cloudflare détecte `pnpm` via `pnpm-lock.yaml` à la racine et installe tout le
-> workspace. La compatibilité `nodejs_compat` provient du `wrangler.toml` de l'app.
+> **⚠️ Ne choisis PAS le preset « Next.js »** : il force `next build` + sortie
+> `.next`, ce qui embarque `.next/cache/webpack/*.pack` (> 25 MiB) et fait
+> échouer le déploiement. On déploie uniquement `…/.vercel/output/static`.
+>
+> **Racine vide (= racine du dépôt)** pour que Cloudflare détecte `pnpm-lock.yaml`
+> et installe **tout le workspace** ; la commande `cd apps/web && …` cible ensuite
+> l'app. La compatibilité `nodejs_compat` provient du `wrangler.toml` de l'app.
 
 > **🔧 Compatibilité adaptateur.** Next est **épinglé à `15.5.2`** car
 > `@cloudflare/next-on-pages@1.13.x` supporte officiellement Next ≤ 15.5.2.
@@ -100,9 +106,10 @@ Variables runtime (Settings → Environment variables) — déjà dans `wrangler
 | Réglage | Valeur |
 | --- | --- |
 | Project name | `srd-admin-assoc` |
-| Root directory | `apps/admin-assoc` |
-| Build command | `npx @cloudflare/next-on-pages@1` |
-| Build output directory | `.vercel/output/static` |
+| Framework preset | **None** (pas « Next.js ») |
+| Root directory | _(laisser VIDE)_ |
+| Build command | `cd apps/admin-assoc && npx @cloudflare/next-on-pages@1` |
+| Build output directory | `apps/admin-assoc/.vercel/output/static` |
 | `NODE_VERSION` | `20` |
 
 Variables / secrets :
@@ -115,7 +122,9 @@ Variables / secrets :
 
 ### 3. `srd-admin-sa` (admin SRD SA)
 
-Identique, avec `Root directory = apps/admin-sa` et :
+Identique : Root directory **vide**, build command
+`cd apps/admin-sa && npx @cloudflare/next-on-pages@1`, output
+`apps/admin-sa/.vercel/output/static`, et :
 
 | Clé | Type | Valeur |
 | --- | --- | --- |
